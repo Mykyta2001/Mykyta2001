@@ -3,14 +3,22 @@
 <!--
 **Mykyta2001/Mykyta2001** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Here are some ideas to get you started:
+import telebot
+bot = telebot.TeleBot('1427003407:AAH9L-oy36syhxOuaz54JLgceyxLAOfGt7M')
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'Напиши  привет ' )
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+@bot.message_handler(content_types=['text'])
+def send_text(message):
+    if message.text.lower() == 'привет':
+
+        bot.send_message(message.chat.id, 'Привет, я бот Стефаний, стараюсь показать дату :);спроси: покажи дату  ')
+    elif message.text.lower() == 'покажи дату':
+       bot.send_message(message.chat.id, 'Посмотрите у себя в календаре ')
+    elif message.text.lower() == '/help':
+       bot.send_message(message.chat.id, 'Кроме даты ничего нет  ')
+    elif message.text.lower() == 'пока':
+        bot.send_message(message.chat.id, 'Прощай, ')
+
+bot.polling()
