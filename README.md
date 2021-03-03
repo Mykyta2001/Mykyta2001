@@ -1,8 +1,3 @@
-### Hi there 👋
-
-<!--
-**Mykyta2001/Mykyta2001** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
 import telebot
 bot = telebot.TeleBot('1427003407:AAH9L-oy36syhxOuaz54JLgceyxLAOfGt7M')
 @bot.message_handler(commands=['start'])
